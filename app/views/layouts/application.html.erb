@@ -7,20 +7,39 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <body>
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-       <% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
+ <div id="wrapper">
+   
+  <header>
+      <div class="container clearfix">
+          <h1 id="logo">
+              Hi!!!!!!!!!!!!!!
+          </h1>
+          <nav>
+              <%= link_to 'profile', abc_xyz_path %>
+              <a href="">About</a>
+              <a href="">services</a>
+               <a href="">Career</a>
+              <a href="">Portfolio</a>
+              <a href="">Contact</a>   <% if user_signed_in? %>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
 
-    <%= yield %>
+  <% else %>
+
+    <%= link_to('Login', new_user_session_path)  %>  
+
+  <% end %>
+          </nav>
+      </div>
+  </header><!-- /header -->
+   <%= yield %>
+</div>
+   
   </body>
 </html>

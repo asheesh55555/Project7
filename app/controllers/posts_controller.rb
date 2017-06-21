@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 def profile_detail
+
    @current_user=current_user
    @users=User.all 
 end
